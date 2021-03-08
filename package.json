@@ -1,5 +1,5 @@
 {
-    "name": "@devlop-ab/laravel-mix-manifest",
+    "name": "@devlop-ab/laravel-mix-manifest-webpack-plugin",
     "version": "1.0.0",
     "description": "Webpack plugin for generating a Laravel Mix compatible manifest.",
     "keywords": [],
@@ -7,12 +7,12 @@
     "license": "MIT",
     "repository": {
         "type": "git",
-        "url": "https://github.com/devlop/laravel-mix-manifest.git"
+        "url": "https://github.com/devlop/laravel-mix-manifest-webpack-plugin.git"
     },
     "bugs": {
-        "url": "https://github.com/devlop/laravel-mix-manifest/issues"
+        "url": "https://github.com/devlop/laravel-mix-manifest-webpack-plugin/issues"
     },
-    "homepage": "https://github.com/devlop/laravel-mix-manifest",
+    "homepage": "https://github.com/devlop/laravel-mix-manifest-webpack-plugin",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
     "files": [
