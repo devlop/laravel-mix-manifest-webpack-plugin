@@ -50,7 +50,6 @@ class LaravelMixManifestPlugin {
     apply(compiler : typeof Compiler)
     {
         compiler.hooks.done.tap(this.constructor.name, (stats : typeof Stats) => {
-            console.log(stats);
             const outputPath = stats.toJson().outputPath;
             const manifestPath = path.resolve(this.public, this.name);
 
