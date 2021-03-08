@@ -19,14 +19,17 @@ npm install @devlop-ab/laravel-mix-manifest-webpack-plugin
 
 ```js
 // in webpack.config.js
-
 const LaravelMixManifestWebpackPlugin = require('@devlop-ab/laravel-mix-manifest-webpack-plugin');
 
-// or
-plugins: [
-    new LaravelMixManifestWebpackPlugin({
-        public: path.resolve(__dirname, 'public'),
-        name: 'mix-manifest.json',
-    }),
-]
+// then add to plugins array in config
+module.exports = {
+    plugins: [
+        new LaravelMixManifestWebpackPlugin({
+            // the path to the public root 
+            public: path.resolve(__dirname, 'public'),
+            // the name of the output file
+            name: 'mix-manifest.json',
+        }),
+    ],
+}
 ```
