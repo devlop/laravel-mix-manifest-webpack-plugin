@@ -1,6 +1,6 @@
 {
     "name": "@devlop-ab/laravel-mix-manifest-webpack-plugin",
-    "version": "1.0.1",
+    "version": "1.0.3",
     "description": "Webpack plugin for generating a Laravel Mix compatible manifest.",
     "keywords": [],
     "author": "Johan Rosenson",
