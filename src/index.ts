@@ -17,7 +17,14 @@ const schema = {
         },
         'name': {
             'type': 'string',
-        }
+        },
+        'include': {
+            'type': 'array',
+            'items': {
+                'type': 'string',
+            },
+            'minItems': 0,
+        },
     },
     'additionalProperties': false,
     'required': [
@@ -30,11 +37,13 @@ interface OptionsInterface
 {
     public : string;
     name : string;
+    include? : Array<string>;
 }
 
 class LaravelMixManifestPlugin {
     private public : string;
     private name : string;
+    private include : Array<string>;
 
     constructor(options : OptionsInterface)
     {
@@ -45,6 +54,7 @@ class LaravelMixManifestPlugin {
 
         this.public = options.public;
         this.name = options.name;
+        this.include = options.include ?? [];
     }
 
     apply(compiler : typeof Compiler)
@@ -56,6 +66,7 @@ class LaravelMixManifestPlugin {
             const files = collect(stats.toJson().assetsByChunkName)
                 .flatten()
                 .map((file : string) => path.resolve(outputPath, file)) // resolve full output path
+                .merge(this.include)
                 .keyBy((file : string) => path.resolve(outputPath, file).substr(this.public.length)) // key by public path
                 .map((file : string) => file + '?v=' + md5(fs.readFileSync(file, 'utf8'))) // append hash
                 .map((file : string) => file.substr(this.public.length)); // convert to public path
